@@ -7,12 +7,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties("lista")
 @Entity
 public class ItemLista {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	public void setLista(Lista lista) {
+		this.lista = lista;
+	}
 
 	private String descricao;
 
