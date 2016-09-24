@@ -44,4 +44,9 @@ public class ListaDao {
 		
 		manager.merge(lista);
 	}
+	
+	//@Transactional
+	public Lista obter(Long idLista){
+		return manager.find(Lista.class, idLista);
+	}
 }

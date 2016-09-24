@@ -28,4 +28,9 @@ public class ItemDao {
 		manager.persist(item);
 	}
 
+	//@Transactional
+	public ItemLista obter(Long idItem){
+		return manager.find(ItemLista.class, idItem);
+	}
+	
 }

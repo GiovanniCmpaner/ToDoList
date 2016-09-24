@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.senai.sp.informatica.todolist.dao.ItemDao;
 import br.senai.sp.informatica.todolist.modelo.ItemLista;
+import br.senai.sp.informatica.todolist.modelo.Lista;
 
 @RestController
 public class ItemRestController {
@@ -50,6 +51,16 @@ public class ItemRestController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@RequestMapping(value = "/item/{idItem}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<ItemLista> obterItem(@PathVariable Long idItem){
+		ItemLista item = itemDao.obter(idItem);
+		if (item != null) {
+			return ResponseEntity.ok().body(item);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
