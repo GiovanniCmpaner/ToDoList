@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.senai.sp.informatica.todolist.dao.ItemDao;
 import br.senai.sp.informatica.todolist.modelo.ItemLista;
-import br.senai.sp.informatica.todolist.modelo.Lista;
 
 @RestController
 public class ItemRestController {
